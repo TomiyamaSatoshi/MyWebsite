@@ -39,7 +39,7 @@ export class InquireComponent implements OnInit {
       (data) => {
         console.log('SUCCESS: ' + JSON.stringify(data));
         alert('メッセージを送信しました!');
-        this.router.navigate(['/']);
+        this.router.navigate(['/inquire']);
       }
     )
   }

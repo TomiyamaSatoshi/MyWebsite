@@ -14,6 +14,6 @@ export class InquireService {
   }
 
   sendMessage(contact: object): Observable<any> {
-    return this.httpClient.post<any>(this.apiUrl + '/send-message', contact);
+    return this.httpClient.post<any>(this.apiUrl + '/myweb/send-message', contact);
   }
 }
