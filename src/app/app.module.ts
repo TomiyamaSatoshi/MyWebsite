@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +12,7 @@ import { IntroduceComponent } from './component/introduce/introduce.component';
 import { SkillComponent } from './component/skill/skill.component';
 import { InquireComponent } from './component/inquire/inquire.component';
 import { HomeComponent } from './component/home/home.component';
+import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { HomeComponent } from './component/home/home.component';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
