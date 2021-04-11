@@ -1,17 +1,48 @@
-<div *ngIf="skillsList?.length; else noSkillsList">
-    <table class="table">
+<div class="parent">
+<img alt="" class="img-responsive" src="./assets/images/laravel.svg">
+<img alt="" class="img-responsive" src="./assets/images/php.svg">
+<img alt="" class="img-responsive" src="./assets/images/angular.svg">
+<img alt="" class="img-responsive" src="./assets/images/python.svg">
+<br><br>
+<button
+    class="btn btn-outline-primary"
+    (click)="onClickSkills(isSkills)"
+    (mouseover)="mouseOverSkills()">
+    経験スキル
+</button>
+<button
+    class="btn btn-outline-primary"
+    (click)="onClickQualifications(isQualifications)"
+    (mouseover)="mouseOverQualifications()">
+    保有資格
+</button>
+<div *ngIf="isSkills">
+    <table class="table table-hover">
         <thead>
-            <tr><th>スキルタイプ</th><th>スキル名</th></tr>
+            <tr>
+                <th scope="col">スキルタイプ</th>
+                <th scope="col">スキル名</th>
+            </tr>
         </thead>
         <tbody>
             <tr *ngFor="let skill of skillsList">
-                <td>{{skill.skillType}}</td>
+                <td>
+                    <div [ngSwitch]="skill.skillType">
+                        <div *ngSwitchCase="1">Language</div>
+                        <div *ngSwitchCase="2">OS</div>
+                        <div *ngSwitchCase="3">DB</div>
+                        <div *ngSwitchCase="4">Framework</div>
+                        <div *ngSwitchCase="5">Other</div>
+                    </div>
+                </td>
                 <td>{{skill.skillName}}</td>
             </tr>
         </tbody>
     </table>
-    <br/>
-    <table class="table">
+</div>
+<br>
+<div *ngIf="isQualifications">
+    <table class="table table-hover">
         <thead>
             <tr><th>資格名</th><th>取得日</th></tr>
         </thead>
@@ -23,6 +54,9 @@
         </tbody>
     </table>
 </div>
-<ng-template #noSkillsList>
-    経験スキルはありません。
-</ng-template>
+<br>
+<img alt="" class="img-responsive" src="./assets/images/android-icon.svg">
+<img alt="" class="img-responsive" src="./assets/images/java.svg">
+<img alt="" class="img-responsive" src="./assets/images/spring.svg">
+<img alt="" class="img-responsive" src="./assets/images/github-icon.svg">
+</div>
