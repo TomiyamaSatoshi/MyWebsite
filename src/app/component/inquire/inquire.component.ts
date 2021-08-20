@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InquireService } from 'src/app/service/inquire.service';
+import { AppError } from 'src/app/common/app-error';
 
 @Component({
   selector: 'app-inquire',
@@ -40,8 +41,11 @@ export class InquireComponent implements OnInit {
         console.log('SUCCESS: ' + JSON.stringify(data));
         alert('メッセージを送信しました!');
         this.router.navigate(['/inquire']);
+      },
+      (error: AppError) => {
+        console.log('FAILED: ' + JSON.stringify(error));
+        alert('メッセージの送信に失敗しました。ネットワークを確認の上、もう一度お試しください。');
       }
     )
   }
-
 }
