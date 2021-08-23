@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let skill of skillsList">
+            <tr *ngFor="let skill of skillList">
                 <td>
                     <div [ngSwitch]="skill.skillType">
                         <div *ngSwitchCase="1">Language</div>
@@ -47,9 +47,9 @@
             <tr><th>資格名</th><th>取得日</th></tr>
         </thead>
         <tbody>
-            <tr *ngFor="let qualifications of qualificationsList">
-                <td>{{qualifications.qualificationName}}</td>
-                <td>{{qualifications.qualificationGetDate}}</td>
+            <tr *ngFor="let qualification of qualificationList">
+                <td>{{qualification.qualificationName}}</td>
+                <td>{{qualification.qualificationGetDate}}</td>
             </tr>
         </tbody>
     </table>

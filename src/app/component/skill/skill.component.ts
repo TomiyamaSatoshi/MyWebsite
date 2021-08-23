@@ -4,7 +4,6 @@ import { BadRequestError } from 'src/app/common/bad-request-error';
 import { NotFoundError } from 'src/app/common/not-found-error';
 import { Qualification } from 'src/app/models/qualification';
 import { Skill } from 'src/app/models/skill';
-import { QualificationsService } from 'src/app/service/qualifications.service';
 import { SkillsService } from 'src/app/service/skills.service';
 
 @Component({
@@ -14,20 +13,18 @@ import { SkillsService } from 'src/app/service/skills.service';
 })
 export class SkillComponent implements OnInit {
 
-  skillsList: Skill[];
-  qualificationsList: Qualification[];
+  skillList: Skill[];
+  qualificationList: Qualification[];
 
   isSkills: Boolean = false;
   isQualifications: Boolean = false;
 
   constructor(
     private skillsService: SkillsService,
-    private qualificationsService: QualificationsService
   ) { }
 
   ngOnInit(): void {
     this.getSkills();
-    this.getQualifications();
   }
 
   // 経験スキルのクリック
@@ -52,31 +49,13 @@ export class SkillComponent implements OnInit {
     this.isSkills = false;
   }
 
-  // 経験スキルの取得
+  // 経験スキル,保有資格の取得
   getSkills() {
     this.skillsService.getSkills().subscribe(
       (skills) => {
         console.log("SUCCESS: " + JSON.stringify(skills));
-        this.skillsList = skills;
-      },
-      (error: AppError) => {
-        if (error instanceof NotFoundError) {
-          console.log('ERROR: Not Found.');
-        } else if (error instanceof BadRequestError) {
-          console.log('ERROR: Bad Request.');
-        } else {
-          throw error;
-        }
-      }
-    );
-  }
-
-  // 保有資格の取得
-  getQualifications() {
-    this.qualificationsService.getQualifications().subscribe(
-      (qualifications) => {
-        console.log("SUCCESS: " + JSON.stringify(qualifications));
-        this.qualificationsList = qualifications;
+        this.skillList = skills.skillEntityList;
+        this.qualificationList = skills.qualificationEntitiyList;
       },
       (error: AppError) => {
         if (error instanceof NotFoundError) {
