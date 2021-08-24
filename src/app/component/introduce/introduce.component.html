@@ -6,19 +6,23 @@
         <br>
         <tr>
             <td scope="row">Name</td>
-            <td>Satoshi, Tomiyama（富山　悟志）</td>
+            <td>{{parsonal.parsonalName}}</td>
         </tr>
         <tr>
             <td scope="row">Birthday</td>
-            <td>February 21, 1993.</td>
+            <td>{{parsonal.birthdayConvert}}</td>
         </tr>
         <tr>
             <td scope="row">Native Place</td>
-            <td>Fujiyoshida, Yamanashi</td>
+            <td>{{parsonal.nativePlace}}</td>
+        </tr>
+        <tr>
+            <td scope="row">Current Location</td>
+            <td>{{parsonal.currentLocation}}</td>
         </tr>
         <tr>
             <td scope="row">Hobbies</td>
-            <td>Running, Have a drink, Traveling, Golf</td>
+            <td>{{parsonal.hobby}}</td>
         </tr>
     </tbody>
 </table>
@@ -29,29 +33,9 @@
     </thead>
     <tbody>
         <br>
-        <tr>
-            <td scope="row">山梨県立富士河口湖高等学校 普通科</td>
-            <td>From April 2009 To March 2011</td>
-        </tr>
-        <tr>
-            <td scope="row">芝浦工業大学 工学部 電子工学科</td>
-            <td>From April 2011 To November 2011</td>
-        </tr>
-        <tr>
-            <td scope="row">東海大学 情報理工学部 コンピュータ応用工学科</td>
-            <td>From April 2012 To March 2016</td>
-        </tr>
-        <tr>
-            <td scope="row">コムシス情報システム株式会社</td>
-            <td>From April 2016 To December 2019</td>
-        </tr>
-        <tr>
-            <td scope="row">芙蓉実業株式会社</td>
-            <td>From January 2020 To November 2020</td>
-        </tr>
-        <tr>
-            <td scope="row">アクセンチュア株式会社</td>
-            <td>From December 2020</td>
+        <tr *ngFor="let careerHistory of careerHistoryList">
+            <td scope="row">{{careerHistory.career}}</td>
+            <td>From {{careerHistory.careerFromDateConvert}} To {{careerHistory.careerToDateConvert}}</td>
         </tr>
     </tbody>
 </table>
