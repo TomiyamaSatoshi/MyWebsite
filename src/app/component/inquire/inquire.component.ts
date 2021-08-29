@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import { InquireService } from 'src/app/service/inquire.service';
 import { AppError } from 'src/app/common/app-error';
