@@ -8,20 +8,20 @@
     class="btn btn-outline-primary"
     (click)="onClickSkills(isSkills)"
     (mouseover)="mouseOverSkills()">
-    経験スキル
+    Experience Skills
 </button>
 <button
     class="btn btn-outline-primary"
     (click)="onClickQualifications(isQualifications)"
     (mouseover)="mouseOverQualifications()">
-    保有資格
+    Qualifications
 </button>
 <div *ngIf="isSkills">
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">スキルタイプ</th>
-                <th scope="col">スキル名</th>
+                <th scope="col">Skill Type</th>
+                <th scope="col">Skill</th>
             </tr>
         </thead>
         <tbody>
@@ -44,7 +44,7 @@
 <div *ngIf="isQualifications">
     <table class="table table-hover">
         <thead>
-            <tr><th>資格名</th><th>取得日</th></tr>
+            <tr><th>Qualification Name</th><th>Acquisition Date</th></tr>
         </thead>
         <tbody>
             <tr *ngFor="let qualification of qualificationList">
