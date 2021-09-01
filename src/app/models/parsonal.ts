@@ -8,6 +8,7 @@ export class Parsonal {
 	hobby: String;
     wellcomeMessageMain: String;
     wellcomeMessageSub: String;
+    wellcomeMessageName: String;
 
     constructor( parsonal: any ){
         this.parsonalName = parsonal.parsonalName;
@@ -18,5 +19,6 @@ export class Parsonal {
         this.hobby = parsonal.hobby;
         this.wellcomeMessageMain = parsonal.wellcomeMessageMain;
         this.wellcomeMessageSub = parsonal.wellcomeMessageSub;
+        this.wellcomeMessageName = parsonal.wellcomeMessageName;
     }
 }
