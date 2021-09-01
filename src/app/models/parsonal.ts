@@ -6,6 +6,8 @@ export class Parsonal {
 	nativePlace: String;
 	currentLocation: String;
 	hobby: String;
+    wellcomeMessageMain: String;
+    wellcomeMessageSub: String;
 
     constructor( parsonal: any ){
         this.parsonalName = parsonal.parsonalName;
@@ -14,5 +16,7 @@ export class Parsonal {
         this.nativePlace = parsonal.nativePlace;
         this.currentLocation = parsonal.currentLocation;
         this.hobby = parsonal.hobby;
+        this.wellcomeMessageMain = parsonal.wellcomeMessageMain;
+        this.wellcomeMessageSub = parsonal.wellcomeMessageSub;
     }
 }
